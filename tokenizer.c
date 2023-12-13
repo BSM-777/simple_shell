@@ -28,12 +28,11 @@ tokens[i] = strdup(token);
 if (tokens[i] == NULL)
 {
 perror("strdup");
-/* Free previously allocated memory before exiting */
+free(tokens);
 for (j = 0; j < i; j++)
 {
 free(tokens[j]);
 }
-free(tokens);
 exit(EXIT_FAILURE);
 }
 i++;

@@ -14,6 +14,7 @@ int i;
 
 if (command == NULL)
 {
+free(command);
 break; /* Exit the loop or take appropriate action */
 }
 else if (strcmp(command, "/bin/ls\n") == 0)
@@ -32,9 +33,8 @@ char **args = tokenize_command(command);
 
 if (args[0] != NULL)
 {
-execute_command(args); /* Pass only args to execute_command */
+execute_command(args);/* Pass only args to execute_command */
 }
-
 for (i = 0; args[i] != NULL; i++)
 {
 free(args[i]);
